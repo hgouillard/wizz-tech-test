@@ -1,18 +1,18 @@
 import { Model, DataTypes } from 'sequelize';
 import { Sequelize } from 'sequelize';
-import { GameAttributes, GameCreationAttributes } from './types';
+import { GameAttributes, GameCreateAttributes } from './types';
+
+export class GameModel extends Model<GameAttributes, GameCreateAttributes> {
+  public id!: number;
+  public publisherId!: string;
+  public name!: string;
+  public platform!: 'ios' | 'android';
+  public storeId!: string;
+  public bundleId!: string;
+}
 
 export default (sequelize: Sequelize) => {
-  class Game
-    extends Model<GameAttributes, GameCreationAttributes>
-    implements GameAttributes
-  {
-    public id!: number;
-    public publisherId!: string;
-    public name!: string;
-    public platform!: string;
-    public storeId!: string;
-    public bundleId!: string;
+  class Game extends GameModel implements GameAttributes {
     public appVersion!: string;
     public isPublished!: boolean;
     public readonly createdAt!: Date;

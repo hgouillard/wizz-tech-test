@@ -1,0 +1,58 @@
+export interface StoreGame {
+  app_id: number;
+  canonical_country: string;
+  name: string;
+  publisher_name: string;
+  publisher_id: number;
+  humanized_name: string;
+  icon_url: string;
+  os: 'ios' | 'android';
+  id: number;
+  appId: number;
+  icon: string;
+  iconUrl: string;
+  url: string;
+  categories: string[];
+  valid_countries: string[];
+  app_view_url: string;
+  publisher_profile_url: string;
+  release_date: string;
+  updated_date: string;
+  in_app_purchases: boolean;
+  shows_ads: boolean;
+  buys_ads: boolean | null;
+  rating: number;
+  price: number;
+  global_rating_count: number;
+  rating_count: number;
+  rating_count_for_current_version: number;
+  rating_for_current_version: number;
+  version: string;
+  apple_watch_enabled: boolean | null;
+  apple_watch_icon: string | null;
+  imessage_enabled: boolean | null;
+  imessage_icon: string | null;
+  humanized_worldwide_last_month_downloads: {
+    value: string;
+    unit: string;
+  };
+  humanized_worldwide_last_month_revenue: {
+    value: string;
+    unit: string;
+  };
+  bundle_id: string;
+  support_url: string;
+  website_url: string;
+  privacy_policy_url: string;
+  eula_url: string | null;
+  publisher_email: string | null;
+  publisher_address: string | null;
+  publisher_country: string | null;
+  feature_graphic: string | null;
+  short_description: string | null;
+  advisories: string[];
+  content_rating: string;
+  rank: number;
+  delta: number;
+  downloads_revenue_date: string;
+}

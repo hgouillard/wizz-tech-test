@@ -1,8 +1,8 @@
 export interface GameAttributes {
-  id?: number;
+  id: number;
   publisherId: string;
   name: string;
-  platform: string;
+  platform: 'ios' | 'android';
   storeId: string;
   bundleId: string;
   appVersion: string;
@@ -11,4 +11,4 @@ export interface GameAttributes {
   updatedAt?: Date;
 }
 
-export interface GameCreationAttributes extends Omit<GameAttributes, 'id'> {}
+export interface GameCreateAttributes extends Omit<GameAttributes, 'id'> {}

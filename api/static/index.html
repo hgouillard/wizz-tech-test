@@ -39,7 +39,19 @@
         class="section section-container"
         style="padding-top: 24px; padding-bottom: 5px"
       >
-        <h2 class="title">Games</h2>
+        <div class="level">
+          <div class="level-left">
+            <h2 class="title">Games</h2>
+          </div>
+          <div class="level-right">
+            <button class="button is-primary" @click="populateGames">
+              <span class="icon">
+                <i class="fa fa-download"></i>
+              </span>
+              <span>Populate from Stores</span>
+            </button>
+          </div>
+        </div>
         <game
           v-for="(game, index) in games"
           :key="`game.name-${index}`"
@@ -283,11 +295,18 @@
                 this.games = copy;
               });
           },
-          searchGames(search) {
+          populateGames() {
             return axios
-              .get(`${this.apiURL}/search`, { params: search })
+              .post(`${this.apiURL}/populate`)
               .then((response) => {
-                this.games = response.data;
+                this.games = response.data.games;
+                alert('Successfully populated games from stores!');
+              })
+              .catch((error) => {
+                console.error('Error populating games:', error);
+                alert(
+                  'Failed to populate games. Please check the console for details.',
+                );
               });
           },
         },
